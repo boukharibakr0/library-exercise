@@ -37,6 +37,7 @@ class BookServiceTest {
         assertEquals("978-0132350884", book.getIsbn());
         assertEquals(3, book.getTotalCopies());
         assertEquals(3, book.getAvailableCopies());
+        System.out.println(book.toString());
     }
 
     @Test

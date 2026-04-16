@@ -10,10 +10,8 @@ import java.util.Optional;
  * ============================================================
  *  GROUP 1 — Book Management
  * ============================================================
- *
  * Your task: implement every method that throws UnsupportedOperationException.
  * Do NOT modify the models, repositories, or tests.
- *
  * Git workflow:
  *   1. Create your branch:
  *        git checkout -b feature/book-management
@@ -37,7 +35,6 @@ public class BookService {
 
     /**
      * Add a new book to the library and return it.
-     *
      * Validation rules (throw IllegalArgumentException if violated):
      *   - id, title and isbn must not be null or blank
      *   - totalCopies must be >= 1
@@ -47,7 +44,12 @@ public class BookService {
         // TODO: validate parameters
         // TODO: create a new Book and save it via the repository
         // TODO: return the saved book
-        throw new UnsupportedOperationException("Not implemented yet — Group 1");
+        BookRepository bookRepository = new BookRepository();
+        Book b1 = new Book(id, title, author, isbn, totalCopies);
+
+        bookRepository.save(b1);
+        return b1;
+        //throw new UnsupportedOperationException("Not implemented yet — Group 1");
     }
 
     /**
