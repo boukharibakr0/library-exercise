@@ -47,7 +47,22 @@ public class BookService {
         // TODO: validate parameters
         // TODO: create a new Book and save it via the repository
         // TODO: return the saved book
-        throw new UnsupportedOperationException("Not implemented yet — Group 1");
+    	if(id == null || id.isBlank()) {
+    		return null;
+    	}
+    	if(title == null || title.isBlank()) {
+    		return null;
+    	}
+    	if(isbn == null || isbn.isBlank()) {
+    		return null;
+    	}
+    	if(totalCopies <= 1) {
+    		return null;
+    	}
+    	Book book = new Book(id,title,author,isbn,totalCopies);
+    	repository.save(book);
+    	return book;
+        //throw new UnsupportedOperationException("Not implemented yet — Group 1");
     }
 
     /**
@@ -56,7 +71,12 @@ public class BookService {
      */
     public Optional<Book> findById(String id) {
         // TODO: delegate to the repository
-        throw new UnsupportedOperationException("Not implemented yet — Group 1");
+    	Optional<Book> in = repository.findById(id);
+    	if(in.isPresent()) {
+    		return in;
+    	}return Optional.empty();
+  
+        //throw new UnsupportedOperationException("Not implemented yet — Group 1");
     }
 
     /**
@@ -65,8 +85,14 @@ public class BookService {
      */
     public List<Book> findByTitle(String title) {
         // TODO: get all books from the repository and filter by title
-        throw new UnsupportedOperationException("Not implemented yet — Group 1");
-    }
+    	List<Book> exist = repository.findAll();
+    	
+     return exist.stream().filter(livre -> livre.getTitle().equals(title)).toList();	
+    	}
+    	
+    	
+        //throw new UnsupportedOperationException("Not implemented yet — Group 1");
+   
 
     /**
      * Return all books whose author matches exactly (case-insensitive).
