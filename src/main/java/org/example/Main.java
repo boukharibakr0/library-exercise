@@ -28,7 +28,7 @@ public class Main {
         BookService   bookService   = new BookService(bookRepo);
         MemberService memberService = new MemberService(memberRepo);
         LoanService   loanService   = new LoanService(loanRepo, bookRepo, memberRepo);
-
+        toto
         // --- Group 1: add some books ---
         Book cleanCode = bookService.addBook("B1", "Clean Code", "Robert Martin", "978-0132350884", 2);
         Book pragProg  = bookService.addBook("B2", "The Pragmatic Programmer", "Hunt & Thomas", "978-0135957059", 1);
